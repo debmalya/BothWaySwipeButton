@@ -34,12 +34,12 @@ class SwipeButtonController : AppCompatSeekBar {
                 super.onTouchEvent(event)
             }
         } else if (event.action == MotionEvent.ACTION_UP) {
-            if (progress > permissiable) {
+            if (progress > permissiable && !confirmed) {
                 // Confirm
                 Log.d("SWIPE :", "CONFIRMED")
                 setBackgroundColor(Color.GREEN)
                 confirmed = true
-            } else if (progress < permissiable  && confirmed) {
+            } else if (progress > permissiable  && confirmed) {
                 // assumption: once confirmed then only can be rejected
                 // default mode is rejected
                 Log.d("SWIPE :", "REJECTED")
