@@ -10,11 +10,11 @@ import androidx.appcompat.widget.AppCompatSeekBar
 class SwipeButtonController : AppCompatSeekBar {
 
     // If dragged beyond permissible limit, it will be considered as accepted
-    private var permissiable: Int = 85
-    private var confirmed : Boolean = false
-    private var message : String = "Confirm"
+    private var permissiable: Int = 50
+    private var confirmed: Boolean = false
+    private var message: String = "Confirm"
 
-    fun setPermissible(limit : Int){
+    fun setPermissible(limit: Int) {
         permissiable = limit
     }
 
@@ -37,13 +37,13 @@ class SwipeButtonController : AppCompatSeekBar {
             if (progress > permissiable && !confirmed) {
                 // Confirm
                 Log.d("SWIPE :", "CONFIRMED")
-                setBackgroundColor(Color.GREEN)
+                setBackgroundColor(Color.rgb(50,200,50))
                 confirmed = true
-            } else if (progress > permissiable  && confirmed) {
+            } else if (progress > permissiable && confirmed) {
                 // assumption: once confirmed then only can be rejected
                 // default mode is rejected
                 Log.d("SWIPE :", "REJECTED")
-                setBackgroundColor(Color.RED)
+                setBackgroundColor(Color.rgb(200,50,70))
 //                progress = 0
                 confirmed = false
             }
