@@ -93,7 +93,7 @@ class SwipeButtonController : AppCompatSeekBar {
         paint.color = Color.WHITE
         paint.style = Paint.Style.FILL
 //        paint.textAlign= p
-        paint.textSize = 100f;
+        paint.textSize = 50f;
 
     }
 
