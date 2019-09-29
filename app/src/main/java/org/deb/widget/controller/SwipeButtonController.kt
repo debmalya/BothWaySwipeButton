@@ -12,7 +12,8 @@ class SwipeButtonController : AppCompatSeekBar {
     // If dragged beyond permissible limit, it will be considered as accepted
     private var permissiable: Int = 50
     private var confirmed: Boolean = false
-    private var message: String = "Confirm"
+    private var confirm: String = "Confirm"
+    private var reject: String = "Reject"
 
     fun setPermissible(limit: Int) {
         permissiable = limit
@@ -32,6 +33,8 @@ class SwipeButtonController : AppCompatSeekBar {
             if (thumb.bounds.contains(event.x.toInt(), event.y.toInt())) {
                 parent.requestDisallowInterceptTouchEvent(true)
                 super.onTouchEvent(event)
+            }  else {
+                return false
             }
         } else if (event.action == MotionEvent.ACTION_UP) {
             if (progress > permissiable && !confirmed) {
@@ -39,7 +42,7 @@ class SwipeButtonController : AppCompatSeekBar {
                 Log.d("SWIPE :", "CONFIRMED")
                 setBackgroundColor(Color.rgb(50,200,50))
                 confirmed = true
-            } else if (progress > permissiable && confirmed) {
+            } else if (progress < permissiable && confirmed) {
                 // assumption: once confirmed then only can be rejected
                 // default mode is rejected
                 Log.d("SWIPE :", "REJECTED")
@@ -48,7 +51,11 @@ class SwipeButtonController : AppCompatSeekBar {
                 confirmed = false
             }
             parent.requestDisallowInterceptTouchEvent(false)
-            progress = 0
+            progress = if (confirmed){
+                100
+            } else {
+                0
+            }
         } else {
             super.onTouchEvent(event)
         }
