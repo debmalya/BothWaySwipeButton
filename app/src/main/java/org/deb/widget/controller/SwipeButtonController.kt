@@ -1,5 +1,6 @@
 package org.deb.widget.controller
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -38,6 +39,7 @@ class SwipeButtonController : AppCompatSeekBar {
         init()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
 
         if (event.action == MotionEvent.ACTION_DOWN) {
@@ -75,13 +77,19 @@ class SwipeButtonController : AppCompatSeekBar {
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
+        var message: String = reject
         if (used) {
-            var message: String = reject
+            paint.textSize = 50f
+            paint.color = Color.WHITE
             if (confirmed) {
                 message = confirm
             }
-            canvas?.drawText(message, this.x + this.width / 3, this.y + this.height / 2, paint)
+        }else {
+            paint.textSize = 20f
+            paint.color = Color.BLACK
+            message = "Swipe right >>> to accept"
         }
+        canvas?.drawText(message, this.x + this.width / 3, this.y + this.height / 2, paint)
     }
 
 
