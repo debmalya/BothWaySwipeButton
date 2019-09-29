@@ -1,6 +1,6 @@
 # BothWaySwipeButton
 To create an android widget so that it will swipe to mark CONFIRMATION to prevent accidental button press. 
-Right swipe to accept ( CONFIRM ). Swipe again to reject ( REJECT ).
+Right swipe to accept ( CONFIRM ). Swipe left to reject ( REJECT ).
 
 
 ## How to use it. 
