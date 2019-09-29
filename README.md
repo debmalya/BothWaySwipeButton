@@ -35,4 +35,4 @@ Right swipe to accept ( CONFIRM ). Swipe left to reject ( REJECT ).
         />
    ```
 ## Reference
-[Got the idea form](https://github.com/gratusik/AGIKSwipeButton)
+[Got the idea form gratusik/AGIKSwipeButton](https://github.com/gratusik/AGIKSwipeButton)
