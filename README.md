@@ -2,6 +2,11 @@
 To create an android widget so that it will swipe to mark CONFIRMATION to prevent accidental button press. 
 Right swipe to accept ( CONFIRM ). Swipe left to reject ( REJECT ).
 
+## Behaviour
+ ![Initial Screen](/docs/InitialScreen.png)
+ ![Right Swipe](/docs/SwipeRight.png)
+ ![Left Swipe](/docs/SwipeLeft.png)
+
 
 ## How to use it. 
 ```
@@ -29,3 +34,5 @@ Right swipe to accept ( CONFIRM ). Swipe left to reject ( REJECT ).
         tools:ignore="UnusedAttribute"
         />
    ```
+## Reference
+[Got the idea form](https://github.com/gratusik/AGIKSwipeButton)
