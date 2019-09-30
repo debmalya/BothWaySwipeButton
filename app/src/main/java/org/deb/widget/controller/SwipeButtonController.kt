@@ -52,14 +52,14 @@ class SwipeButtonController : AppCompatSeekBar {
         } else if (event.action == MotionEvent.ACTION_UP) {
             if (progress > permissiable && !confirmed) {
                 // Confirm
-                setBackgroundColor(Color.rgb(50, 200, 50))
+                setBackgroundColor(Color.rgb(153, 255, 204))
                 confirmed = true
                 used = true
 
             } else if (progress < permissiable && confirmed) {
                 // assumption: once confirmed then only can be rejected
                 // default mode is rejected
-                setBackgroundColor(Color.rgb(200, 50, 70))
+                setBackgroundColor(Color.rgb(255, 102, 102))
                 confirmed = false
             }
             parent.requestDisallowInterceptTouchEvent(false)
@@ -78,6 +78,8 @@ class SwipeButtonController : AppCompatSeekBar {
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         var message: String = reject
+        var x = this.x + this.width/3
+        var y = this.y + this.height/2
         if (used) {
             paint.textSize = 50f
             paint.color = Color.WHITE
@@ -89,7 +91,12 @@ class SwipeButtonController : AppCompatSeekBar {
             paint.color = Color.BLACK
             message = "Swipe right >>> to accept"
         }
-        canvas?.drawText(message, this.x + this.width / 3, this.y + this.height / 2, paint)
+        if (canvas!= null) {
+            x = canvas.clipBounds.exactCenterX() / 2
+            y = canvas.clipBounds.exactCenterY() + 20
+
+        }
+        canvas?.drawText(message, x, y, paint)
     }
 
 
