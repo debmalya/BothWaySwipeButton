@@ -40,6 +40,15 @@
         tools:ignore="UnusedAttribute"
         />
 
+    <org.deb.widget.SwipeConfirmationButton
+        android:id="@+id/confirmationButton"
+        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:background="@color/sb_thumb_button_color_default"
+        android:text="Swipe right >>> to accept"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
